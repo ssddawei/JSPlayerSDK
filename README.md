@@ -22,7 +22,7 @@ pod 'JSPLayerSDK'
 
 ## Author
 
-ssddawei, 16990471@qq.com
+ssddawei,
 
 ## License
 

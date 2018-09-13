@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JSPLayerSDK'
-  s.version          = '0.1.0'
+  s.version          = '2.0.12'
   s.summary          = 'A short description of JSPLayerSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -24,13 +24,14 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/ssddawei/JSPLayerSDK'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'ssddawei' => '16990471@qq.com' }
+  s.author           = { 'ssddawei' => '/' }
   s.source           = { :git => 'https://github.com/ssddawei/JSPLayerSDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  s.platform         = :ios
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'JSPLayerSDK/Classes/**/*'
+  s.vendored_frameworks = 'SDK/JSPlayerSDK.framework'
+  s.resources = 'SDK/JSPlayerSDKUI.bundle'
+  # s.source_files = 'JSPLayerSDK/Classes/**/*'
   
   # s.resource_bundles = {
   #   'JSPLayerSDK' => ['JSPLayerSDK/Assets/*.png']
