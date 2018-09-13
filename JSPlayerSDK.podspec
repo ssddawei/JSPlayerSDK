@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JSPlayerSDK'
-  s.version          = '2.0.13'
+  s.version          = '2.0.12.2'
   s.summary          = 'A short description of JSPlayerSDK.'
 
 # This description is used to generate tags and improve search results.
