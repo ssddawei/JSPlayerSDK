@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'JSPLayerSDK'
-  s.version          = '2.0.12'
-  s.summary          = 'A short description of JSPLayerSDK.'
+  s.name             = 'JSPlayerSDK'
+  s.version          = '2.0.13'
+  s.summary          = 'A short description of JSPlayerSDK.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,23 +21,15 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/ssddawei/JSPLayerSDK'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/ssddawei/JSPlayerSDK'
+
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ssddawei' => '/' }
-  s.source           = { :git => 'https://github.com/ssddawei/JSPLayerSDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/ssddawei/JSPlayerSDK.git', :tag => s.version.to_s }
 
   s.platform         = :ios
   s.ios.deployment_target = '8.0'
   s.vendored_frameworks = 'SDK/JSPlayerSDK.framework'
   s.resources = 'SDK/JSPlayerSDKUI.bundle'
-  # s.source_files = 'JSPLayerSDK/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'JSPLayerSDK' => ['JSPLayerSDK/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
