@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'js_player_sdk'
-  s.version          = '2.0.12'
+  s.version          = '2.0.12.2'
   s.summary          = 'A short description of JSPlayerSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ TODO: Add long description of the pod here.
 
   s.platform         = :ios
   s.ios.deployment_target = '8.0'
-  s.vendored_frameworks = 'SDK/JSPlayerSDK.framework'
+  s.ios.vendored_frameworks = 'SDK/JSPlayerSDK.framework'
   s.resources = 'SDK/JSPlayerSDKUI.bundle'
 
 end
