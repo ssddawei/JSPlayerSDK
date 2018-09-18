@@ -17,7 +17,7 @@
 #pragma mark - VideoPlayerSkinDelegate
 
 /**
- ui 皮肤需要实现的借口
+ ui 皮肤需要实现的接口
  */
 @protocol PREFIX(VideoPlayerSkinDelegate) <NSObject>
 
@@ -48,6 +48,9 @@
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
 showDialog:(NSString*)title btn:(NSString*)btn showBackground:(BOOL)showBackground showLoading:(BOOL)showLoading btnClick:(void(^)(void))btnClick;
+
+-(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
+hideDialog:(BOOL)_;
 
 @end
 
@@ -162,6 +165,8 @@ typedef enum PREFIX(PlayerState) {
  @param onBtnClick 对话框按钮点击事件
  */
 -(void)showDialog:(NSString*)title btnTitle:(NSString*)btnTitle showBackground:(BOOL)showBackground showLoading:(BOOL)showLoading onBtnClick:(void(^)(void))onBtnClick;
+
+-(void)hideDialog;
 
 @end
 
