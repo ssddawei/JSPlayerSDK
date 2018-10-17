@@ -32,6 +32,9 @@
 @property(nonatomic) NSString* tip;
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
+    mute:(BOOL)isMute;
+
+-(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     stateDidChange:(int)state;
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
