@@ -278,7 +278,7 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
 -(void)ready:(long)_roomID;
 
 /**
- 加入瓶体啊，获取直播见相关信息，使用多播放器样式，用做列表界面
+ 接入平台，获取直播见相关信息，使用多播放器样式，用做列表界面
  @param _roomID 直播间Id，传0表示不关联直播间
  @param _apiServer 平台url
  */
