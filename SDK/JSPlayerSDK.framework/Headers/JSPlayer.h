@@ -64,7 +64,9 @@ hideDialog:(BOOL)_;
  */
 @interface PREFIX(VideoPlayer) : UIView
 
-@property(nonatomic,retain) AVPlayer* avplayer;
+@property(nonatomic)BOOL modeMultiplayer;
+
+@property(nonatomic,retain,readonly) AVPlayer* avplayer;
 /**
  皮肤的根对象
  */
@@ -274,6 +276,14 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
  */
 -(void)ready:(long)_roomID apiServer:(NSString*)_apiServer;
 -(void)ready:(long)_roomID;
+
+/**
+ 加入瓶体啊，获取直播见相关信息，使用多播放器样式，用做列表界面
+ @param _roomID 直播间Id，传0表示不关联直播间
+ @param _apiServer 平台url
+ */
+-(void)readyForMultiplayer:(long)_roomID apiServer:(NSString*)_apiServer;
+
 /**
  断开与平台的通讯，回收资源。
  调用后释放所有资料，前后台切换，wifi检测等无法使用。
