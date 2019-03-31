@@ -81,6 +81,8 @@ hideDialog:(BOOL)_;
 
 @property BOOL autoplay;
 
+@property double lastPosition;
+
 @end
 
 
@@ -129,6 +131,9 @@ typedef enum PREFIX(PlayerState) {
  开始播放视频，如果当前视频为暂停状态，则恢复播放
  */
 -(void)play;
+
+-(void)playFromTime:(double)time;
+
 /**
  加载制定url视频并开始播放
 
