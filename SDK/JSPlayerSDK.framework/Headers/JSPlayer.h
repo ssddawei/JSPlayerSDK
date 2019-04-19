@@ -135,6 +135,8 @@ typedef enum PREFIX(PlayerState) {
 
 -(void)playFromTime:(double)time;
 
+-(void)playFromTime:(double)time url:(NSString*)url;
+
 /**
  加载制定url视频并开始播放
 
