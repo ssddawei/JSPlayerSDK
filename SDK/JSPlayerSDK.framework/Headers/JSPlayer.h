@@ -193,6 +193,13 @@ typedef enum PREFIX(PlayerState) {
 @end
 #pragma mark - LiveVideoPlayer
 
+typedef NS_ENUM(NSInteger, PREFIX(ReadyStatus)){
+    PREFIX(ReadyStatusLiveReady) = 1,
+    PREFIX(ReadyStatusVodReady),
+    PREFIX(ReadyStatusVodProgress),
+    PREFIX(ReadyStatusVodOff)
+};
+
 typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
     PREFIX(PlayerEventLiveWillStart) = 1,
     PREFIX(PlayerEventLiveWillStop),
