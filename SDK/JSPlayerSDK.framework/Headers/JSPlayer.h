@@ -135,6 +135,8 @@ typedef enum PREFIX(PlayerState) {
 
 -(void)playFromTime:(double)time;
 
+-(void)playFromTime:(double)time toTime:(double)toTime;
+
 -(void)playFromTime:(double)time url:(NSString*)url;
 
 /**
