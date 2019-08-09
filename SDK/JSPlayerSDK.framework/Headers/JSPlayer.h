@@ -30,6 +30,7 @@
  */
 @property(nonatomic, retain) UIImage* poster;
 @property(nonatomic) NSString* tip;
+@property(nonatomic) BOOL isVip;
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     mute:(BOOL)isMute;
@@ -81,6 +82,9 @@ hideDialog:(BOOL)_;
 @property(nonatomic,retain) UIImage* poster;
 @property(nonatomic) NSString* tip;
 
+/**
+ 是否自动播放(默认开启)
+ */
 @property BOOL autoplay;
 @property double lastPosition;
 
@@ -120,6 +124,10 @@ typedef enum PREFIX(PlayerState) {
  当前播放视频的url地址
  */
 @property(nonatomic,readonly) NSString* url;
+/**
+ 是否收费视频(默认关闭)
+ */
+@property(nonatomic) BOOL isVip;
 
 /**
  加载指定url的视频
@@ -208,6 +216,7 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
     PREFIX(PlayerEventLiveDidStart),
     PREFIX(PlayerEventLiveDidStop),
     PREFIX(PlayerEventLivePic),
+    PREFIX(PlayerEventBeforePlay),
     PREFIX(PlayerEventPlay),
     PREFIX(PlayerEventPause),
     PREFIX(PlayerEventFinished),
