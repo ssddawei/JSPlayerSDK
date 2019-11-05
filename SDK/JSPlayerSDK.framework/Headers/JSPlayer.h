@@ -165,6 +165,7 @@ typedef enum PREFIX(PlayerState) {
 -(void)pause;
 -(void)stop;
 
+
 @end
 
 @interface PREFIX(VideoPlayer)(Fullscreen)
@@ -201,6 +202,15 @@ typedef enum PREFIX(PlayerState) {
 -(void)showControl:(BOOL)show;
 
 @end
+
+@interface PREFIX(VideoPlayer)(Screenshot)
+
+@property(nonatomic) BOOL isScreenshotMode;
+
+-(UIImage*)screenshot;
+
+@end
+
 #pragma mark - LiveVideoPlayer
 
 typedef NS_ENUM(NSInteger, PREFIX(ReadyStatus)){
