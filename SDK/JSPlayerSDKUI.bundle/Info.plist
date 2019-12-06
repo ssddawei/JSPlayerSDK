@@ -15,29 +15,29 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2.9 </string>
+	<string>2.3.0 </string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>iPhoneOS</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>96 </string>
+	<string>97 </string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>17B80</string>
+	<string>17B102</string>
 	<key>DTPlatformName</key>
 	<string>iphoneos</string>
 	<key>DTPlatformVersion</key>
 	<string>13.2</string>
 	<key>DTSDKBuild</key>
-	<string>17B80</string>
+	<string>17B102</string>
 	<key>DTSDKName</key>
 	<string>iphoneos13.2</string>
 	<key>DTXcode</key>
 	<string>1120</string>
 	<key>DTXcodeBuild</key>
-	<string>11B52</string>
+	<string>11B500</string>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>NSHumanReadableCopyright</key>

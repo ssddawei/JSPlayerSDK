@@ -67,6 +67,8 @@ hideDialog:(BOOL)_;
 
 @property(nonatomic)BOOL modeMultiplayer;
 
+@property(nonatomic)BOOL modePortrait;
+
 @property(nonatomic,retain,readonly) AVPlayer* avplayer;
 /**
  皮肤的根对象
