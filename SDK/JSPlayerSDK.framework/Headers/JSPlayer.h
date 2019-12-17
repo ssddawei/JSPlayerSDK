@@ -31,6 +31,7 @@
 @property(nonatomic, retain) UIImage* poster;
 @property(nonatomic) NSString* tip;
 @property(nonatomic) BOOL isVip;
+@property(nonatomic,readonly)UIView* controllerView;
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     mute:(BOOL)isMute;
