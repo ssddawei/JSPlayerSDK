@@ -74,16 +74,21 @@ hideDialog:(BOOL)_;
 /**
  皮肤的根对象
  */
-@property(nonatomic,retain) UIView<PREFIX(VideoPlayerSkinDelegate)>* controlView;
+@property(nonatomic,retain) UIView<PREFIX(VideoPlayerSkinDelegate)>* skinView;
+
+/**
+ 播放器工具栏
+ */
+@property(nonatomic,retain,readonly) UIView* controlView;
 /**
  在播放器最上层可以嵌入其他ui控件
  */
-@property(retain) UIView* overlayView;
+@property(nonatomic,retain,readonly) UIView* overlayView;
 /**
  封面图
  */
 @property(nonatomic,retain) UIImage* poster;
-@property(nonatomic) NSString* tip;
+@property(nonatomic,retain) NSString* tip;
 
 /**
  是否自动播放(默认开启)
