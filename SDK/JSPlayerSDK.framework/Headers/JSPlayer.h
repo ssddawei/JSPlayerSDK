@@ -32,6 +32,7 @@
 @property(nonatomic) NSString* tip;
 @property(nonatomic) BOOL isVip;
 @property(nonatomic,readonly)UIView* controllerView;
+@property(nonatomic,readonly)UIView* controllerView2;
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     mute:(BOOL)isMute;
@@ -79,7 +80,9 @@ hideDialog:(BOOL)_;
 /**
  播放器工具栏
  */
-@property(nonatomic,retain,readonly) UIView* controlView;
+ @property(nonatomic,retain,readonly) UIView* controlView;
+ @property(nonatomic,retain,readonly) UIView* controlView2;
+ 
 /**
  在播放器最上层可以嵌入其他ui控件
  */
