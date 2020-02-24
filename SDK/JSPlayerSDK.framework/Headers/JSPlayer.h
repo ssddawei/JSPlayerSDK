@@ -31,8 +31,9 @@
 @property(nonatomic, retain) UIImage* poster;
 @property(nonatomic) NSString* tip;
 @property(nonatomic) BOOL isVip;
-@property(nonatomic,readonly)UIView* controllerView;
-@property(nonatomic,readonly)UIView* controllerView2;
+@property(nonatomic,readonly)UIView* controllerView;//随进度条显示和隐藏，满屏容器（在wifi对话框下方）
+@property(nonatomic,readonly)UIView* controllerView2;//随进度条显示和隐藏，满屏容器（在wifi对话框上方）
+@property(nonatomic,readonly)UIView* controllerPlayBtnView;//随播放按钮显示和隐藏，满屏容器（在wifi对话框上方）
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     mute:(BOOL)isMute;
@@ -82,6 +83,7 @@ hideDialog:(BOOL)_;
  */
  @property(nonatomic,retain,readonly) UIView* controlView;
  @property(nonatomic,retain,readonly) UIView* controlView2;
+ @property(nonatomic,retain,readonly) UIView* controlPlayBtnView;
  
 /**
  在播放器最上层可以嵌入其他ui控件
