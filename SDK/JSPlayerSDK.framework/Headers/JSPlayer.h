@@ -83,7 +83,6 @@ hideDialog:(BOOL)_;
  */
  @property(nonatomic,retain,readonly) UIView* controlView;
  @property(nonatomic,retain,readonly) UIView* controlView2;
- @property(nonatomic,retain,readonly) UIView* controlPlayBtnView;
  
 /**
  在播放器最上层可以嵌入其他ui控件
