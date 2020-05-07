@@ -47,6 +47,11 @@
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     bufferTimeDidChange:(double)time;
 
+#define DISPLAY_MODE_DETAIL     0 //详情播放
+#define DISPLAY_MODE_LIST_LIVE  1 //列表播放live,
+#define DISPLAY_MODE_LIST_VOD   2 //列表直播vod
+#define DISPLAY_MODE_PORTRAIT   3 //竖屏
+#define DISPLAY_MODE_NOCONTROL  4 //不显示控件
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     displayModeDidChange:(int)mode;
 
@@ -71,6 +76,8 @@ hideDialog:(BOOL)_;
 @property(nonatomic)BOOL modeMultiplayer;
 
 @property(nonatomic)BOOL modePortrait;
+
+@property(nonatomic)BOOL modeNoControl;
 
 @property(nonatomic,retain,readonly) AVPlayer* avplayer;
 /**
