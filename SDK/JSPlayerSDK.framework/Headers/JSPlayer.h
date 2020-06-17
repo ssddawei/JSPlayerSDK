@@ -24,12 +24,16 @@
 /**
  关联的播放器
  */
-@property(retain) PREFIX(VideoPlayer)* player;
+@property(nonatomic, weak) PREFIX(VideoPlayer)* player;
 /**
  封面图
  */
 @property(nonatomic, retain) UIImage* poster;
 @property(nonatomic) NSString* tip;
+@property(nonatomic) BOOL isVip;
+@property(nonatomic,readonly)UIView* controllerView;//随进度条显示和隐藏，满屏容器（在wifi对话框下方）
+@property(nonatomic,readonly)UIView* controllerView2;//随进度条显示和隐藏，满屏容器（在wifi对话框上方）
+@property(nonatomic,readonly)UIView* controllerPlayBtnView;//随播放按钮显示和隐藏，满屏容器（在wifi对话框上方）
 
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     mute:(BOOL)isMute;
@@ -43,6 +47,11 @@
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     bufferTimeDidChange:(double)time;
 
+#define DISPLAY_MODE_DETAIL     0 //详情播放
+#define DISPLAY_MODE_LIST_LIVE  1 //列表播放live,
+#define DISPLAY_MODE_LIST_VOD   2 //列表直播vod
+#define DISPLAY_MODE_PORTRAIT   3 //竖屏
+#define DISPLAY_MODE_NOCONTROL  4 //不显示控件
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     displayModeDidChange:(int)mode;
 
@@ -64,22 +73,41 @@ hideDialog:(BOOL)_;
  */
 @interface PREFIX(VideoPlayer) : UIView
 
-@property(nonatomic,retain) AVPlayer* avplayer;
+@property(nonatomic)BOOL modeMultiplayer;
+
+@property(nonatomic)BOOL modePortrait;
+
+@property(nonatomic)BOOL modeNoControl;
+
+@property(nonatomic)BOOL modeBackgroundPlay;
+
+@property(nonatomic,retain,readonly) AVPlayer* avplayer;
 /**
  皮肤的根对象
  */
-@property(nonatomic,retain) UIView<PREFIX(VideoPlayerSkinDelegate)>* controlView;
+@property(nonatomic,retain) UIView<PREFIX(VideoPlayerSkinDelegate)>* skinView;
+
+/**
+ 播放器工具栏
+ */
+ @property(nonatomic,retain,readonly) UIView* controlView;
+ @property(nonatomic,retain,readonly) UIView* controlView2;
+ 
 /**
  在播放器最上层可以嵌入其他ui控件
  */
-@property(retain) UIView* overlayView;
+@property(nonatomic,retain,readonly) UIView* overlayView;
 /**
  封面图
  */
 @property(nonatomic,retain) UIImage* poster;
-@property(nonatomic) NSString* tip;
+@property(nonatomic,retain) NSString* tip;
 
+/**
+ 是否自动播放(默认开启)
+ */
 @property BOOL autoplay;
+@property double lastPosition;
 
 @end
 
@@ -117,6 +145,10 @@ typedef enum PREFIX(PlayerState) {
  当前播放视频的url地址
  */
 @property(nonatomic,readonly) NSString* url;
+/**
+ 是否收费视频(默认关闭)
+ */
+@property(nonatomic) BOOL isVip;
 
 /**
  加载指定url的视频
@@ -129,6 +161,13 @@ typedef enum PREFIX(PlayerState) {
  开始播放视频，如果当前视频为暂停状态，则恢复播放
  */
 -(void)play;
+
+-(void)playFromTime:(double)time;
+
+-(void)playFromTime:(double)time toTime:(double)toTime;
+
+-(void)playFromTime:(double)time url:(NSString*)url;
+
 /**
  加载制定url视频并开始播放
 
@@ -146,6 +185,7 @@ typedef enum PREFIX(PlayerState) {
 
 -(void)pause;
 -(void)stop;
+
 
 @end
 
@@ -183,7 +223,23 @@ typedef enum PREFIX(PlayerState) {
 -(void)showControl:(BOOL)show;
 
 @end
+
+@interface PREFIX(VideoPlayer)(Screenshot)
+
+@property(nonatomic) BOOL isScreenshotMode;
+
+-(UIImage*)screenshot;
+
+@end
+
 #pragma mark - LiveVideoPlayer
+
+typedef NS_ENUM(NSInteger, PREFIX(ReadyStatus)){
+    PREFIX(ReadyStatusLiveReady) = 1,
+    PREFIX(ReadyStatusVodReady),
+    PREFIX(ReadyStatusVodProgress),
+    PREFIX(ReadyStatusVodOff)
+};
 
 typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
     PREFIX(PlayerEventLiveWillStart) = 1,
@@ -191,6 +247,7 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
     PREFIX(PlayerEventLiveDidStart),
     PREFIX(PlayerEventLiveDidStop),
     PREFIX(PlayerEventLivePic),
+    PREFIX(PlayerEventBeforePlay),
     PREFIX(PlayerEventPlay),
     PREFIX(PlayerEventPause),
     PREFIX(PlayerEventFinished),
@@ -274,6 +331,14 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
  */
 -(void)ready:(long)_roomID apiServer:(NSString*)_apiServer;
 -(void)ready:(long)_roomID;
+
+/**
+ 接入平台，获取直播见相关信息，使用多播放器样式，用做列表界面
+ @param _roomID 直播间Id，传0表示不关联直播间
+ @param _apiServer 平台url
+ */
+-(void)readyForMultiplayer:(long)_roomID apiServer:(NSString*)_apiServer;
+
 /**
  断开与平台的通讯，回收资源。
  调用后释放所有资料，前后台切换，wifi检测等无法使用。
