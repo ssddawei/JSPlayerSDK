@@ -73,12 +73,22 @@ hideDialog:(BOOL)_;
  */
 @interface PREFIX(VideoPlayer) : UIView
 
+//多个播放器模式
+//UI界面上与单个模仿器有所不同
 @property(nonatomic)BOOL modeMultiplayer;
 
+//竖屏模式,设置为YES
+//否则,设置为NO.
 @property(nonatomic)BOOL modePortrait;
 
+//是否不显示控件
+//在小屏播放,需要设置为YES,不显示进度条等控件;
+//非小屏播放,需要设置为NO,显示进度条等控件.
 @property(nonatomic)BOOL modeNoControl;
 
+//是否开启后台模式播放音频
+//设置为YES,播放视频时进入后台,播放不停止,继续播放音频;
+//设置为NO,播放视频时进入后台,停止播放.
 @property(nonatomic)BOOL modeBackgroundPlay;
 
 @property(nonatomic,retain,readonly) AVPlayer* avplayer;
