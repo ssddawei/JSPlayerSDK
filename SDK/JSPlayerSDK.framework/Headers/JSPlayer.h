@@ -71,7 +71,13 @@ hideDialog:(BOOL)_;
 /**
  对AVPlayer进行的封装，会加载LiveVideoPlayerSDKUI.bundle作为皮肤
  */
-@interface PREFIX(VideoPlayer) : UIView
+@interface PREFIX(VideoPlayer) : UIView {
+	/**
+	 avplayerlayer
+	 */
+	@protected
+	AVPlayerLayer * mavPlayerLayer;
+}
 
 //多个播放器模式
 //UI界面上与单个模仿器有所不同
@@ -118,6 +124,8 @@ hideDialog:(BOOL)_;
  */
 @property BOOL autoplay;
 @property double lastPosition;
+
+
 
 @end
 
