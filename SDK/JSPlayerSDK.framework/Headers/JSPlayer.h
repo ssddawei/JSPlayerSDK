@@ -35,6 +35,13 @@
 @property(nonatomic,readonly)UIView* controllerView2;//随进度条显示和隐藏，满屏容器（在wifi对话框上方）
 @property(nonatomic,readonly)UIView* controllerPlayBtnView;//随播放按钮显示和隐藏，满屏容器（在wifi对话框上方）
 
+	//D02_Ga:下方的控制按钮
+@property(nonatomic,weak) UIView * toolbar;
+@property(nonatomic,weak) UIView * toolbar2;
+@property(nonatomic,weak) UIView * toolbar_muteHint;
+- (void)setPlayStyle:(int)playStyle;
+- (void)showMuteHint;
+
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
     mute:(BOOL)isMute;
 
@@ -97,6 +104,12 @@ hideDialog:(BOOL)_;
 //设置为NO,播放视频时进入后台,停止播放.
 @property(nonatomic)BOOL modeBackgroundPlay;
 
+	//D02_静音模式
+	//是否开启静音提示功能
+	//YES,在播放时,首先显示音量提示.如果静音则会提示当前为静音状态3s;单击后显示正常播放UI.
+	//NO,在播放时直接显示正常播放UI.
+@property(nonatomic,assign)BOOL modeShowMuteHint;
+
 @property(nonatomic,retain,readonly) AVPlayer* avplayer;
 /**
  皮肤的根对象
@@ -125,6 +138,7 @@ hideDialog:(BOOL)_;
 @property BOOL autoplay;
 @property double lastPosition;
 
+@property(nonatomic,assign)BOOL isPlayed;
 
 
 @end
