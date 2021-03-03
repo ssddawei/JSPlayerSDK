@@ -242,6 +242,7 @@ typedef enum PREFIX(PlayerState) {
 -(void)showDialog:(NSString*)title btnTitle:(NSString*)btnTitle showBackground:(BOOL)showBackground showLoading:(BOOL)showLoading onBtnClick:(void(^)(void))onBtnClick;
 
 -(void)hideDialog;
+-(void)viewTap;
 
 @end
 
