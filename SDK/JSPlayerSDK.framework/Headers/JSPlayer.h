@@ -71,6 +71,8 @@ showDialog:(NSString*)title btn:(NSString*)btn showBackground:(BOOL)showBackgrou
 -(void)PREFIX(VideoPlayer):(PREFIX(VideoPlayer)*)player
 hideDialog:(BOOL)_;
 
+- (void)enableGestureControl:(BOOL)enable;
+
 @end
 
 #pragma mark - VideoPlayer
@@ -109,6 +111,10 @@ hideDialog:(BOOL)_;
 	//YES,在播放时,首先显示音量提示.如果静音则会提示当前为静音状态3s;单击后显示正常播放UI.
 	//NO,在播放时直接显示正常播放UI.
 @property(nonatomic,assign)BOOL modeShowMuteHint;
+
+//手势的开关
+//
+@property(nonatomic,assign)BOOL modeGestureControl;
 
 @property(nonatomic,retain,readonly) AVPlayer* avplayer;
 /**
