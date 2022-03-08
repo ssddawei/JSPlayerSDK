@@ -147,6 +147,8 @@ hideDialog:(BOOL)_;
 @property(nonatomic,assign)BOOL isPlayed;
 
 
+
+
 @end
 
 
@@ -356,6 +358,14 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
  @return uiview
  */
 -(UIView*)getControllerView;
+
+
++(void)setUserId:(NSString *)userId;
++(NSString *)getUserId;
+//上报cdn错误至正式环境还是测试环境.
+//isDev YES,测试环境;NO,正式环境.
+//默认为测试环境.
++ (void)setCdnErrorReportDev:(BOOL)isDev;
 
 @end
 
