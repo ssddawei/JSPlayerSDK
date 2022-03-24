@@ -367,6 +367,8 @@ typedef NS_ENUM(NSInteger, PREFIX(PlayerEvent)){
 //默认为测试环境.
 + (void)setCdnErrorReportDev:(BOOL)isDev;
 
+- (void)setBufferTimeout:(float)timeout;
+
 @end
 
 
